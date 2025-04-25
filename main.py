@@ -61,6 +61,7 @@ def main_program():
             if "error" in random_scroll(driver): raise ValueError()
             storage_cookies(driver, cookie_f_name=username_ins)
             driver.quit()
+            waiting_ui(20, "Đợi 20s để tiếp tục")
     except:
         try:
            driver.quit()
