@@ -55,7 +55,7 @@ def scroll_to_down(driver: webdriver.Chrome):
     rdn_times_scroll = random.randint(2, 10) # random scroll
     for i in range(rdn_times_scroll):
         driver.execute_script(f"window.scrollTo({i*600}, {(i+1)*600});")
-        waiting_ui(random.randint(1, 3), "Đợi để tiếp tục scroll") # random wait
+        waiting_ui(random.randint(5, 20), "Đợi để tiếp tục scroll") # random wait
         print(system_color(f"[>] Đã scroll, số lần {i+1}/{rdn_times_scroll}"))
         
         if driver.current_url == "https://www.instagram.com/":
@@ -74,7 +74,7 @@ def scroll_to_up(driver: webdriver.Chrome):
     rdn_times_scroll = random.randint(2, 10)
     for i in range(rdn_times_scroll):
         driver.execute_script(f"window.scrollTo({i*-100}, {(i+1)*-100});")
-        waiting_ui(random.randint(1, 3), "Đợi để tiếp tục scroll") # random wait
+        waiting_ui(random.randint(5, 20), "Đợi để tiếp tục scroll") # random wait
         print(system_color(f"[>] Đã scroll, số lần {i+1}/{rdn_times_scroll}"))
     return ""
 
