@@ -59,6 +59,7 @@ def main_program():
             driver = driver_init(session_path, True)
             load_cookies(driver, cookie_f_name=username_ins)
             if "error" in random_scroll(driver): raise ValueError()
+            storage_cookies(driver, cookie_f_name=username_ins)
             driver.quit()
     except:
         try:

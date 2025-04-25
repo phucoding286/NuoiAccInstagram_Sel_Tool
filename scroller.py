@@ -59,12 +59,12 @@ def scroll_to_down(driver: webdriver.Chrome):
         print(system_color(f"[>] Đã scroll, số lần {i+1}/{rdn_times_scroll}"))
         
         if driver.current_url == "https://www.instagram.com/":
-            choose_like_post = random.choice([True] + [False for _ in range(40)])
+            choose_like_post = random.choice([True] + [False for _ in range(100)])
             like_out = like_post_when_scroll(driver, i) if choose_like_post else ""
             if "error" in like_out: return like_out
             if choose_like_post: print(success_color(f"[#] Đã like post thứ {i}"))
             
-            choose_cmt_post = random.choice([True] + [False for _ in range(40)])
+            choose_cmt_post = random.choice([True] + [False for _ in range(100)])
             cmt_out = comment_post_when_scroll(driver, i) if choose_cmt_post else ""
             if "error" in cmt_out: return cmt_out
             if choose_cmt_post: print(success_color(f"[#] Đã comment post thứ {i}"))
