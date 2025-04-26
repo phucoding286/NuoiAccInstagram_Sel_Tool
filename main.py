@@ -56,7 +56,7 @@ def main_program():
     for username_ins, session_path in data.items():
         try:
             print(system_color(f"[>] account đang chạy -> {username_ins}"))
-            driver = driver_init(session_path, True)
+            driver = driver_init(session_path, False)
             load_cookies(driver, cookie_f_name=username_ins)
             if "error" in random_scroll(driver): raise ValueError()
             storage_cookies(driver, cookie_f_name=username_ins)

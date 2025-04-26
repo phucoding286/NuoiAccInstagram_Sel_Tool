@@ -22,7 +22,7 @@ def driver_init(chrome_user_data=None, headless=False):
     options = webdriver.ChromeOptions() 
     options.add_argument("--log-level=3")
     options.add_argument("--disable-popup-blocking")
-    options.add_argument('--window-size=1920,1080')
+    options.add_argument('--window-position=1000,0')
     if headless:
         options.add_argument('--headless=new')
 
@@ -30,6 +30,7 @@ def driver_init(chrome_user_data=None, headless=False):
         options.add_argument(f"--user-data-dir={chrome_user_data}")
 
     driver = webdriver.Chrome(options=options)
+    driver.set_window_size(50, 500)
     driver.set_page_load_timeout(20)
     driver.set_script_timeout(20)
     return driver
