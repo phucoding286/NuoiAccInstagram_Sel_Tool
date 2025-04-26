@@ -53,8 +53,8 @@ def add_new_session():
 
 def main_program():
     data = json.load(open(sessions_manager_file))['data']
-    try:
-        for username_ins, session_path in data.items():
+    for username_ins, session_path in data.items():
+        try:
             print(system_color(f"[>] account đang chạy -> {username_ins}"))
             driver = driver_init(session_path, True)
             load_cookies(driver, cookie_f_name=username_ins)
@@ -62,16 +62,16 @@ def main_program():
             storage_cookies(driver, cookie_f_name=username_ins)
             driver.quit()
             waiting_ui(20, "Đợi 20s để tiếp tục")
-    except:
-        try:
-           driver.quit()
         except:
-            pass
-        try:
-            r = requests.get("https://www.google.com/")
-        except:
-            print(error_color("\n[!] Không có mạng!"))
-            input(system_color("[!] Phát hiện không có mạng, chương trình tạm dừng, chờ can thiệp, enter để tiếp tục chạy\n-> "))
+            try:
+                driver.quit()
+            except:
+                pass
+            try:
+                r = requests.get("https://www.google.com/")
+            except:
+                print(error_color("\n[!] Không có mạng!"))
+                input(system_color("[!] Phát hiện không có mạng, chương trình tạm dừng, chờ can thiệp, enter để tiếp tục chạy\n-> "))
 
 if __name__ == "__main__":
     while True:
